@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asali — Business Concept Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&family=DM+Mono:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #00C2C7;
+    --purple: #7B2FBE;
+    --orange: #FF6B2B;
+    --yellow: #FFD700;
+    --pink: #FF4FA7;
+    --cream: #FFF8EE;
+    --dark: #0D0D0D;
+    --mid: #1A1A2E;
+    --card: #16213E;
+    --muted: #888;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--dark);
+    color: var(--cream);
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    position: relative;
+    padding: 60px 24px 40px;
+    text-align: center;
+    overflow: hidden;
+    border-bottom: 2px solid var(--teal);
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 20% 50%, rgba(123,47,190,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 50%, rgba(0,194,199,0.2) 0%, transparent 60%),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 38px,
+        rgba(255,215,0,0.04) 38px,
+        rgba(255,215,0,0.04) 40px
+      );
+    z-index: 0;
+  }
+
+  .tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    border: 1px solid var(--yellow);
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 10vw, 88px);
+    letter-spacing: 4px;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, var(--cream) 30%, var(--teal) 70%, var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    margin-top: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .badge {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+  }
+
+  .badge-teal { background: rgba(0,194,199,0.15); color: var(--teal); border: 1px solid var(--teal); }
+  .badge-purple { background: rgba(123,47,190,0.15); color: #B57BFF; border: 1px solid #B57BFF; }
+  .badge-orange { background: rgba(255,107,43,0.15); color: var(--orange); border: 1px solid var(--orange); }
+  .badge-pink { background: rgba(255,79,167,0.15); color: var(--pink); border: 1px solid var(--pink); }
+
+  /* MAIN */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  /* SECTION */
+  .section {
+    margin-bottom: 48px;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(0,194,199,0.2);
+  }
+
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 2px;
+    color: var(--cream);
+    margin-bottom: 20px;
+  }
+
+  /* CARDS */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+
+  .card.teal::before { background: linear-gradient(90deg, var(--teal), var(--purple)); }
+  .card.orange::before { background: linear-gradient(90deg, var(--orange), var(--yellow)); }
+  .card.pink::before { background: linear-gradient(90deg, var(--pink), var(--purple)); }
+  .card.yellow::before { background: linear-gradient(90deg, var(--yellow), var(--teal)); }
+
+  .card-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .card p {
+    font-size: 13px;
+    color: rgba(255,248,238,0.65);
+    line-height: 1.7;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--teal), var(--purple), var(--pink));
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 28px;
+    padding: 18px 20px;
+    background: var(--card);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 22px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--teal);
+    border: 2px solid var(--dark);
+    box-shadow: 0 0 0 3px rgba(0,194,199,0.2);
+  }
+
+  .timeline-item .day-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--yellow);
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .timeline-item h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+
+  .timeline-item p {
+    font-size: 13px;
+    color: rgba(255,248,238,0.6);
+    line-height: 1.7;
+  }
+
+  /* LIST ITEMS */
+  .item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .item-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    border-left: 3px solid var(--purple);
+    font-size: 14px;
+    color: rgba(255,248,238,0.8);
+  }
+
+  .item-row.teal-b { border-left-color: var(--teal); }
+  .item-row.orange-b { border-left-color: var(--orange); }
+  .item-row.pink-b { border-left-color: var(--pink); }
+  .item-row.yellow-b { border-left-color: var(--yellow); }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  /* SPLIT */
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .split { grid-template-columns: 1fr; }
+    .card-grid { grid-template-columns: 1fr; }
+  }
+
+  .split-block {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .split-block h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+  }
+
+  .split-block.profit h3 { color: var(--teal); }
+  .split-block.nonprofit h3 { color: var(--yellow); }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(0,194,199,0.08), rgba(123,47,190,0.08));
+    border: 1px solid rgba(0,194,199,0.25);
+    border-radius: 12px;
+    padding: 24px;
+    font-size: 14px;
+    color: rgba(255,248,238,0.8);
+    line-height: 1.8;
+  }
+
+  .highlight-box strong {
+    color: var(--teal);
+    font-weight: 700;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 2px;
+  }
+
+  footer span { color: var(--pink); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="tag">Business Concept Brief · Draft 001</div>
+  <h1>Asali Entertainment</h1>
+  <p class="subtitle">Claremore, Oklahoma · Experience + Community + Culture</p>
+  <div class="badges">
+    <span class="badge badge-teal">90s / Y2K Aesthetic</span>
+    <span class="badge badge-purple">Gaming + Events</span>
+    <span class="badge badge-orange">Hybrid Nonprofit</span>
+    <span class="badge badge-pink">~600 Day Launch</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- THE VISION -->
+  <div class="section">
+    <div class="section-label">01 — The Vision</div>
+    <div class="highlight-box">
+      An entertainment center rooted in <strong>nostalgia, community, and experience</strong> — bringing the warmth of the 90s/early 2000s to Claremore, a time people are craving to get back to. Not just a place to hang out. A place to <strong>feel something</strong>. An experience that sells a feeling: safety, joy, belonging, and the freedom of youth before the world got complicated. Built on a hybrid model — a for-profit experience layer on top of a nonprofit foundation.
+    </div>
+  </div>
+
+  <!-- BRAND IDENTITY -->
+  <div class="section">
+    <div class="section-label">02 — Brand Identity</div>
+    <h2>Look & Feel</h2>
+    <div class="card-grid">
+      <div class="card teal">
+        <span class="card-icon">🎨</span>
+        <h3>Color Palette</h3>
+        <p>90s / early Y2K colors — bold teals, electric purples, warm oranges, hot pinks. Asali — inspired by the Swahili word for honey.</p>
+      </div>
+      <div class="card orange">
+        <span class="card-icon">✨</span>
+        <h3>The Feeling</h3>
+        <p>Pre-recession sweetness. The early 2000s sweet spot — after the wars, before the crash. A simpler, warmer time that our generation is deeply nostalgic for.</p>
+      </div>
+      <div class="card pink">
+        <span class="card-icon">🕹️</span>
+        <h3>Pop Culture Timing</h3>
+        <p>Minecraft movie, gaming revival, retro gaming culture — this moment is perfectly timed for a nostalgic, gamified entertainment space.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHYSICAL SPACE -->
+  <div class="section">
+    <div class="section-label">03 — The Space</div>
+    <h2>What's Inside</h2>
+    <div class="item-list">
+      <div class="item-row teal-b"><div class="dot"></div>Large carpet area with bean bags — chill gaming lounge vibe, Xbox/gaming consoles</div>
+      <div class="item-row teal-b"><div class="dot"></div>Minecraft setup + sports games + dance/rhythm games (DDR-style)</div>
+      <div class="item-row orange-b"><div class="dot"></div>Center stage / multipurpose platform — daytime use as display/activity space, evening use for events and performances</div>
+      <div class="item-row orange-b"><div class="dot"></div>Tokens, tickets, prizes — some sold, some won, some gifted through programming</div>
+      <div class="item-row pink-b"><div class="dot"></div>Artisan Wall — local Claremore makers contribute handmade goods (keychains, crochet, art). Each contributor's name permanently on the wall + certificate</div>
+      <div class="item-row pink-b"><div class="dot"></div>Class / consultation space in the back — financial literacy, life skills, youth programming</div>
+      <div class="item-row yellow-b"><div class="dot"></div>Film screening capability — host film club nights, Next Vision productions, educational film study</div>
+    </div>
+  </div>
+
+  <!-- COMMUNITY HOOK -->
+  <div class="section">
+    <div class="section-label">04 — Community Flywheel</div>
+    <h2>The Artisan Wall Strategy</h2>
+    <div class="highlight-box">
+      Reach out to retired women, grandmas, local makers in Claremore — people who crochet, make keychains, do small crafts. Invite them to <strong>donate 2–3 pieces</strong> to the store. In return: their name on the wall permanently, a framed certificate, and a video recorded of them contributing. That video becomes promo content — <em>"Look who's building this dream with us."</em> It gets their grandkids in the door, builds word-of-mouth before opening, and creates a genuine community story. <strong>Every person who touches this store becomes an ambassador.</strong>
+    </div>
+  </div>
+
+  <!-- TARGET AUDIENCE -->
+  <div class="section">
+    <div class="section-label">05 — Target Audience</div>
+    <h2>Who We Serve</h2>
+    <div class="card-grid">
+      <div class="card teal">
+        <span class="card-icon">🧒</span>
+        <h3>Tweens + Teens</h3>
+        <p>Junior high through high school. Claremore High School feeder. The gaming, hangout, social anchor for this age group.</p>
+      </div>
+      <div class="card orange">
+        <span class="card-icon">🎓</span>
+        <h3>Young Adults (14+)</h3>
+        <p>The transition from teen to adult. Financial literacy, life skills, community. RSU students as a secondary base.</p>
+      </div>
+      <div class="card pink">
+        <span class="card-icon">👵</span>
+        <h3>Community Elders</h3>
+        <p>Artisans, grandmas, established locals. Not buyers — contributors. Their investment brings their families.</p>
+      </div>
+      <div class="card yellow">
+        <span class="card-icon">🏘️</span>
+        <h3>Claremore as a Whole</h3>
+        <p>Fill the gap — there's nothing else like this here. First mover advantage in a community with real demand and no competition.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUSINESS STRUCTURE -->
+  <div class="section">
+    <div class="section-label">06 — Business Structure</div>
+    <h2>Hybrid Model</h2>
+    <div class="split">
+      <div class="split-block nonprofit">
+        <h3>🌱 Nonprofit Arm</h3>
+        <div class="item-list">
+          <div class="item-row yellow-b"><div class="dot"></div>Financial literacy programming</div>
+          <div class="item-row yellow-b"><div class="dot"></div>College student fund / scholarships</div>
+          <div class="item-row yellow-b"><div class="dot"></div>Youth development classes</div>
+          <div class="item-row yellow-b"><div class="dot"></div>Grant eligibility (Build in Tulsa, state grants, etc.)</div>
+          <div class="item-row yellow-b"><div class="dot"></div>Community events & outreach</div>
+        </div>
+      </div>
+      <div class="split-block profit">
+        <h3>💼 For-Profit Layer</h3>
+        <div class="item-list">
+          <div class="item-row teal-b"><div class="dot"></div>Token / ticket / game revenue</div>
+          <div class="item-row teal-b"><div class="dot"></div>Event hosting fees</div>
+          <div class="item-row teal-b"><div class="dot"></div>Artisan merchandise sales</div>
+          <div class="item-row teal-b"><div class="dot"></div>Next Vision sublease / collaboration</div>
+          <div class="item-row teal-b"><div class="dot"></div>Operational cost recovery</div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="highlight-box">
+      <strong>Next Vision Connection:</strong> The nonprofit houses the community mission. Next Vision LLC operates as a for-profit collaborator — renting space, using the venue for film screenings and events, keeping books clean and separate. The nonprofit gets grants more easily; Next Vision gets a legitimate infrastructure partner. Clean books, clear lines.
+    </div>
+  </div>
+
+  <!-- FUNDING STRATEGY -->
+  <div class="section">
+    <div class="section-label">07 — Funding Strategy</div>
+    <h2>How We Get There</h2>
+    <div class="item-list">
+      <div class="item-row teal-b"><div class="dot"></div><strong>Military benefits</strong> — use every resource and benefit before separation. Healthcare, SBA loans, Boots to Business, veteran entrepreneur programs</div>
+      <div class="item-row orange-b"><div class="dot"></div><strong>Credit building</strong> — both partners building credit simultaneously for a stronger combined pitch</div>
+      <div class="item-row pink-b"><div class="dot"></div><strong>Bank relationship</strong> — existing trust at current bank. Present in person with full credentials, military history, business plan</div>
+      <div class="item-row yellow-b"><div class="dot"></div><strong>Nonprofit grants</strong> — once 501(c)(3) established, eligible for community grants, education grants, Build in Tulsa pipeline</div>
+      <div class="item-row teal-b"><div class="dot"></div><strong>Selling an experience</strong> — this is not a product pitch, it's a feeling pitch. Show investors what the community walks into</div>
+    </div>
+  </div>
+
+  <!-- NETWORK -->
+  <div class="section">
+    <div class="section-label">08 — Network & People</div>
+    <h2>Building the Team</h2>
+    <div class="item-list">
+      <div class="item-row teal-b"><div class="dot"></div><strong>Gina</strong> — knows everyone in Claremore. Strong connector for older demographic. Already warm relationship.</div>
+      <div class="item-row orange-b"><div class="dot"></div><strong>RSU Students</strong> — gaming-focused student (animation/design), fashion-forward student (Lore). Creative team candidates.</div>
+      <div class="item-row pink-b"><div class="dot"></div><strong>Claremore Artisans</strong> — the community contributors. Recruited through personal visits, not ads. One-on-one relationship building.</div>
+      <div class="item-row yellow-b"><div class="dot"></div><strong>Youth Orgs / Soccer Connections</strong> — built-in teen audience through existing coaching and youth sports relationships.</div>
+    </div>
+  </div>
+
+  <!-- ACTION STEPS / TODO -->
+  <div class="section">
+    <div class="section-label">09 — Also On The List</div>
+    <h2>Next Steps to Draft</h2>
+    <div class="item-list">
+      <div class="item-row teal-b"><div class="dot"></div>Operations manual — how things run, liability protection, official procedures</div>
+      <div class="item-row teal-b"><div class="dot"></div>Explore switching to military health insurance (run quote while not stressed)</div>
+      <div class="item-row teal-b"><div class="dot"></div>Begin building presence in Claremore — clubs, events, RSU involvement</div>
+      <div class="item-row teal-b"><div class="dot"></div>Start identifying artisans — warm outreach, relationship first</div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="section">
+    <div class="section-label">10 — Timeline</div>
+    <h2>The 600-Day Runway</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="day-tag">NOW → DAY 90</span>
+        <h4>Foundation Phase</h4>
+        <p>Build credit. Explore military benefits. Begin artisan outreach. Network in Claremore. Form nonprofit entity.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="day-tag">DAY 90 → DAY 300</span>
+        <h4>Community Building</h4>
+        <p>Artisan wall contributors. RSU talent recruitment. Host small pop-up events. Document everything for content.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="day-tag">DAY 300 → DAY 500</span>
+        <h4>Pre-Launch Hype</h4>
+        <p>Content rollout — artisan videos, contributor wall moments, community stories. Build frequency and awareness. Finalize space concept.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="day-tag">DAY 500 → DAY 600</span>
+        <h4>Bank Pitch Ready</h4>
+        <p>Walk into the bank with full credentials, military record, community traction, nonprofit status, and a pitch that sells a feeling. Ask for the money.</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Built by Jasman Said &nbsp;·&nbsp; <span>Asali · Draft 001</span> &nbsp;·&nbsp; Claremore, OK
+</footer>
+
+</body>
+</html>

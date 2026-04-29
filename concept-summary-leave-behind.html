@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concept Summary — Asali Entertainment Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { page-break-after: always; box-shadow: none !important; }
+  }
+
+  :root {
+    --teal: #00B4B9;
+    --purple: #8B3FCF;
+    --orange: #FF6B2B;
+    --yellow: #F5C518;
+    --pink: #E84393;
+    --cream: #FFF8EE;
+    --dark: #0B0B0F;
+    --card: #141420;
+    --text: rgba(255,248,238,0.82);
+    --dim: rgba(255,248,238,0.5);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #060608;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 460px;
+    background: var(--dark);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 80px rgba(0,180,185,0.08);
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    padding: 36px 24px 28px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(139,63,207,0.2) 0%, transparent 55%),
+      radial-gradient(ellipse at 70% 80%, rgba(0,180,185,0.15) 0%, transparent 55%);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--teal), var(--purple), transparent);
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    position: relative;
+    z-index: 1;
+    margin-bottom: 14px;
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px;
+    letter-spacing: 3px;
+    line-height: 1.05;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, var(--cream), var(--teal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 13px;
+    color: var(--dim);
+    margin-top: 8px;
+    position: relative;
+    z-index: 1;
+    font-weight: 300;
+  }
+
+  .hero-sub strong {
+    color: var(--teal);
+    font-weight: 600;
+  }
+
+  /* PITCH LINE */
+  .pitch {
+    padding: 20px 24px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--cream);
+    background: linear-gradient(135deg, rgba(0,180,185,0.06), rgba(139,63,207,0.06));
+    border-top: 1px solid rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+
+  .pitch em {
+    color: var(--yellow);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* SECTION */
+  .section {
+    padding: 24px 24px 0;
+  }
+
+  .section:last-of-type {
+    padding-bottom: 24px;
+  }
+
+  .section-head {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-head::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(0,180,185,0.15);
+  }
+
+  /* OFFERING PILLS */
+  .offerings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .pill {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 12.5px;
+    font-weight: 500;
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .pill-icon { font-size: 16px; }
+
+  /* PHASE STACK */
+  .phase-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .phase {
+    display: flex;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,0.04);
+    align-items: flex-start;
+  }
+
+  .phase-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    line-height: 1;
+    color: var(--teal);
+    flex-shrink: 0;
+    width: 28px;
+    text-align: center;
+  }
+
+  .phase-num.p2 { color: var(--purple); }
+  .phase-num.p3 { color: var(--pink); }
+
+  .phase-body h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 4px;
+  }
+
+  .phase-body p {
+    font-size: 11.5px;
+    color: var(--dim);
+    line-height: 1.6;
+  }
+
+  /* TIERS */
+  .tier-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .tier {
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .tier-name {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .tier-name.basic { color: var(--teal); }
+  .tier-name.standard { color: var(--yellow); }
+  .tier-name.premium { color: var(--orange); }
+  .tier-name.luxury { color: var(--pink); }
+
+  .tier-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--cream);
+    line-height: 1;
+  }
+
+  .tier-desc {
+    font-size: 10.5px;
+    color: var(--dim);
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+
+  /* DIFFERENTIATORS */
+  .diff-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .diff {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  .diff-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  .diff-dot.t { background: var(--teal); }
+  .diff-dot.p { background: var(--purple); }
+  .diff-dot.o { background: var(--orange); }
+  .diff-dot.y { background: var(--yellow); }
+  .diff-dot.pk { background: var(--pink); }
+
+  /* CALLOUT */
+  .callout {
+    margin: 20px 24px 0;
+    padding: 18px 18px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(245,197,24,0.08), rgba(232,67,147,0.06));
+    border: 1px solid rgba(245,197,24,0.2);
+    text-align: center;
+  }
+
+  .callout-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 8px;
+  }
+
+  .callout-text {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--cream);
+  }
+
+  .callout-text strong {
+    color: var(--yellow);
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 20px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    margin-top: 24px;
+  }
+
+  .footer-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: var(--cream);
+    margin-bottom: 4px;
+  }
+
+  .footer-info {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--dim);
+    letter-spacing: 1px;
+    line-height: 1.8;
+  }
+
+  .footer-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    border: 1px solid rgba(0,180,185,0.3);
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="hero">
+    <div class="eyebrow">Concept Summary · Claremore, OK</div>
+    <h1>Asali<br>Entertainment</h1>
+    <p class="hero-sub">A <strong>community-powered</strong> family experience space</p>
+  </div>
+
+  <div class="pitch">
+    Not just an arcade. A place where families <em>feel something</em> — nostalgia, belonging, and joy — powered by the people of Claremore themselves.
+  </div>
+
+  <!-- WHAT WE OFFER -->
+  <div class="section">
+    <div class="section-head">What's Inside</div>
+    <div class="offerings">
+      <div class="pill"><span class="pill-icon">🕹️</span> Retro Arcade</div>
+      <div class="pill"><span class="pill-icon">🎂</span> Custom Birthday Parties</div>
+      <div class="pill"><span class="pill-icon">🍳</span> Kids Cooking Experiences</div>
+      <div class="pill"><span class="pill-icon">🎮</span> Console Gaming Lounge</div>
+      <div class="pill"><span class="pill-icon">💃</span> Dance / Rhythm Games</div>
+      <div class="pill"><span class="pill-icon">🎥</span> Media + Event Production</div>
+      <div class="pill"><span class="pill-icon">🧠</span> Financial Literacy Games</div>
+      <div class="pill"><span class="pill-icon">🤝</span> Local Artisan Showcase</div>
+    </div>
+  </div>
+
+  <!-- PHASED PLAN -->
+  <div class="section">
+    <div class="section-head">How We Build It</div>
+    <div class="phase-stack">
+      <div class="phase">
+        <div class="phase-num">1</div>
+        <div class="phase-body">
+          <h4>Launch</h4>
+          <p>Arcade games, birthday party packages, basic media add-ons. Prove the model. Build the audience.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-num p2">2</div>
+        <div class="phase-body">
+          <h4>Expand</h4>
+          <p>Kids cooking experiences, local business partnerships, artisan wall, community events.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-num p3">3</div>
+        <div class="phase-body">
+          <h4>Deepen</h4>
+          <p>Financial literacy programming, youth development, college fund, nonprofit community layer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BIRTHDAY PRICING -->
+  <div class="section">
+    <div class="section-head">Birthday Party Tiers</div>
+    <div class="tier-row">
+      <div class="tier">
+        <div class="tier-name basic">Basic</div>
+        <div class="tier-price">$150–250</div>
+        <div class="tier-desc">Space + games + basic setup. Parents bring their own extras.</div>
+      </div>
+      <div class="tier">
+        <div class="tier-name standard">Standard</div>
+        <div class="tier-price">$300–600</div>
+        <div class="tier-desc">Themed setup, game tokens, photo/video highlights.</div>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier">
+        <div class="tier-name premium">Premium</div>
+        <div class="tier-price">$800–1,500</div>
+        <div class="tier-desc">Full production: decor, media coverage, custom experience.</div>
+      </div>
+      <div class="tier">
+        <div class="tier-name luxury">Luxury</div>
+        <div class="tier-price">$2,000+</div>
+        <div class="tier-desc">Private event, cinematic documentation, complete takeover.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY THIS WORKS -->
+  <div class="section">
+    <div class="section-head">Why This Works Here</div>
+    <div class="diff-list">
+      <div class="diff"><div class="diff-dot t"></div>No direct competition in Claremore — first mover advantage in an underserved family entertainment market</div>
+      <div class="diff"><div class="diff-dot p"></div>90s / Y2K nostalgia is at peak cultural demand — perfectly timed for parents who grew up in that era</div>
+      <div class="diff"><div class="diff-dot o"></div>Kids cooking parties are rare, Instagram-worthy, and extremely high margin — a true differentiator</div>
+      <div class="diff"><div class="diff-dot y"></div>Local artisan integration makes the community a stakeholder, not just a customer</div>
+      <div class="diff"><div class="diff-dot pk"></div>Hybrid nonprofit/for-profit model unlocks grant funding while sustaining operations through experience revenue</div>
+    </div>
+  </div>
+
+  <!-- SLEEPER HIT CALLOUT -->
+  <div class="callout">
+    <div class="callout-label">The Sleeper Hit</div>
+    <div class="callout-text">
+      <strong>"Cook Your Birthday"</strong><br>
+      Kids cooking birthday parties. Rare, experiential, deeply shareable. This concept alone could anchor the entire business.
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-name">Jasman Said · Founder</div>
+    <div class="footer-info">
+      Claremore, Oklahoma<br>
+      loverjasman@gmail.com
+    </div>
+    <div class="footer-tag">Concept Stage · Conversations Welcome</div>
+  </div>
+
+</div>
+
+</body>
+</html>
